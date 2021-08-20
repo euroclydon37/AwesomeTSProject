@@ -1,15 +1,17 @@
 import React from 'react';
-import {SafeAreaView, ScrollView, Text, View} from 'react-native';
+import {ApolloClient, InMemoryCache, ApolloProvider} from '@apollo/client';
+import {HomeScreen} from './src/screens/Home';
+
+const client = new ApolloClient({
+  uri: 'https://sg-ants-server.herokuapp.com/graphql',
+  cache: new InMemoryCache(),
+});
 
 const App = () => {
   return (
-    <SafeAreaView>
-      <ScrollView contentInsetAdjustmentBehavior="automatic">
-        <View>
-          <Text>Hello World</Text>
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+    <ApolloProvider client={client}>
+      <HomeScreen />
+    </ApolloProvider>
   );
 };
 
