@@ -1,6 +1,7 @@
 import { useQuery } from '@apollo/client';
 import React from 'react';
-import { SafeAreaView, ScrollView, Text, View } from 'react-native';
+import { Ant } from '../components/Ant';
+import { Page } from '../components/Page';
 import { ALL_ANTS } from '../constants/queries';
 import { GetAllAnts } from '../constants/__generated__/GetAllAnts';
 
@@ -12,12 +13,6 @@ export function HomeScreen() {
   }
 
   return (
-    <SafeAreaView>
-      <ScrollView contentInsetAdjustmentBehavior="automatic">
-        <View>
-          <Text>Hello World</Text>
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+    <Page title="Home">{data?.ants.map(ant => ant && <Ant ant={ant} />)}</Page>
   );
 }
