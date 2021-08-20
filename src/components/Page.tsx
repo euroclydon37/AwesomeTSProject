@@ -1,5 +1,6 @@
 import React from 'react';
 import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { DARK_FONT } from '../constants/styles';
 
 interface Props {
   title: string;
@@ -21,14 +22,16 @@ export function Page({ title, children }: Props) {
 
 const styles = StyleSheet.create({
   container: {
-    marginHorizontal: 16,
+    paddingHorizontal: 16,
+    height: '100%',
   },
   header: {
+    marginHorizontal: 16,
     marginBottom: 10,
   },
   headerText: {
     fontSize: 36,
     fontWeight: '800',
-    color: 'rgb(50, 50, 50)',
+    color: DARK_FONT,
   },
 });
